@@ -14,6 +14,7 @@
 		47D8C99028BF715C00F48840 /* Audio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47D8C98E28BF715C00F48840 /* Audio.xcdatamodeld */; };
 		47D8C99228BF715D00F48840 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D8C99128BF715D00F48840 /* Assets.xcassets */; };
 		47D8C99528BF715D00F48840 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D8C99328BF715D00F48840 /* LaunchScreen.storyboard */; };
+		47D8C99D28BF7D7200F48840 /* Sicilian_Breeze.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47D8C99C28BF7D7200F48840 /* Sicilian_Breeze.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		47D8C99128BF715D00F48840 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47D8C99428BF715D00F48840 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47D8C99628BF715D00F48840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47D8C99C28BF7D7200F48840 /* Sicilian_Breeze.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sicilian_Breeze.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		47D8C98428BF715C00F48840 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				47D8C99C28BF7D7200F48840 /* Sicilian_Breeze.mp3 */,
 				47D8C98528BF715C00F48840 /* AppDelegate.swift */,
 				47D8C98728BF715C00F48840 /* SceneDelegate.swift */,
 				47D8C98928BF715C00F48840 /* ViewController.swift */,
@@ -129,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47D8C99528BF715D00F48840 /* LaunchScreen.storyboard in Resources */,
+				47D8C99D28BF7D7200F48840 /* Sicilian_Breeze.mp3 in Resources */,
 				47D8C99228BF715D00F48840 /* Assets.xcassets in Resources */,
 				47D8C98D28BF715C00F48840 /* Main.storyboard in Resources */,
 			);

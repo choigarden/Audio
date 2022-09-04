@@ -119,6 +119,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pvq-2c-3gt">
                                                 <rect key="frame" x="163.33333333333334" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="swRecordMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="LcT-Vd-EKe"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -129,6 +132,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="78.333333333333329" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Record"/>
+                                                <connections>
+                                                    <action selector="btnRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P95-mF-fHQ"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbJ-4U-2XQ">
                                                 <rect key="frame" x="166.33333333333334" y="0.0" width="46" height="34.333333333333336"/>
@@ -153,9 +159,11 @@
                     <connections>
                         <outlet property="btnPause" destination="kO2-YE-ZOw" id="rLG-wa-07a"/>
                         <outlet property="btnPlay" destination="q1R-3s-LHa" id="czk-MI-Nxe"/>
+                        <outlet property="btnRecord" destination="uWv-up-VfN" id="LrL-ky-rQb"/>
                         <outlet property="btnStop" destination="0xD-mm-3Ah" id="KOp-NH-SuK"/>
                         <outlet property="lblCurrentTime" destination="ngC-sc-thC" id="duo-Yf-LGH"/>
                         <outlet property="lblEndTime" destination="40f-HV-Mri" id="k0F-kO-D0s"/>
+                        <outlet property="lblRecordTime" destination="YbJ-4U-2XQ" id="cSX-gv-7pu"/>
                         <outlet property="pvProgressPlay" destination="M6d-Ms-tgz" id="2on-C9-Lov"/>
                         <outlet property="slVolume" destination="lYy-pD-oaj" id="v2k-gO-GbW"/>
                     </connections>

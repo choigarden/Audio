@@ -51,16 +51,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             initRecord()
         }
         
-        
-        func selectAudioFile() {
-            if !isRecordMode {
-                audioFile = Bundle.main.url(forResource: "Sicilian_Breeze", withExtension: "mp3")
-            } else {
-                let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask) [0]
-                audioFile = documentDirectory.appendingPathComponent("recordFile.m4a")
-            }
+    }
+    
+    func selectAudioFile() {
+        if !isRecordMode {
+            audioFile = Bundle.main.url(forResource: "Sicilian_Breeze", withExtension: "mp3")
+        } else {
+            let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask) [0]
+            audioFile = documentDirectory.appendingPathComponent("recordFile.m4a")
         }
-        
     }
     
     func initRecord() {
@@ -186,25 +185,27 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             lblRecordTime.isEnabled = false
             lblRecordTime.text = convertNSTimeInterval2String(0)
         }
+        
         selectAudioFile()
         if !isRecordMode {
             initPlay()
         } else {
             initRecord()
         }
-        
-        func selectAudioFile() {
-            if !isRecordMode {
-                audioFile = Bundle.main.url(forResource: "Sicilian_Breeze", withExtension: "mp3")
-            } else {
-                let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask) [0]
-                audioFile = documentDirectory.appendingPathComponent("recordFile.m4a")
-            }
-        }
     }
     
     
     @IBAction func btnRecord(_ sender: UIButton) {
+        if (sender as AnyObject).titleLabel?.text == "Record" {
+            audioRecorder.record()
+            (sender as AnyObject).setTitle("Stop", for: UIControl.State())
+        } else {
+            audioRecorder.stop()
+            (sender as AnyObject).setTitle("Record", for: UIControl.State())
+            btnPlay.isEnabled = true
+            initPlay()
+            
+        }
     }
     
     

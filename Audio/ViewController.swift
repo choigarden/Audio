@@ -173,6 +173,34 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     
     
     @IBAction func swRecordMode(_ sender: UISwitch) {
+        if sender.isOn {
+            audioPlayer.stop()
+            audioPlayer.currentTime = 0
+            lblRecordTime!.text = convertNSTimeInterval2String(0)
+            isRecordMode = true
+            btnRecord.isEnabled = true
+            lblRecordTime.isEnabled = true
+        } else {
+            isRecordMode = false
+            btnRecord.isEnabled = false
+            lblRecordTime.isEnabled = false
+            lblRecordTime.text = convertNSTimeInterval2String(0)
+        }
+        selectAudioFile()
+        if !isRecordMode {
+            initPlay()
+        } else {
+            initRecord()
+        }
+        
+        func selectAudioFile() {
+            if !isRecordMode {
+                audioFile = Bundle.main.url(forResource: "Sicilian_Breeze", withExtension: "mp3")
+            } else {
+                let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask) [0]
+                audioFile = documentDirectory.appendingPathComponent("recordFile.m4a")
+            }
+        }
     }
     
     

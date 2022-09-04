@@ -31,6 +31,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     @IBOutlet var btnRecord: UIButton!
     @IBOutlet var lblRecordTime: UILabel!
     
+    @IBOutlet var imgView: UIImageView!
+    
+    var imgPlay = UIImage(named: "play.png")
+    var imgStop = UIImage(named: "stop.png")
+    var imgRecord = UIImage(named: "record.png")
+    var imgPause = UIImage(named: "pause.png")
+    
     var audioRecorder : AVAudioRecorder!
     var isRecordMode = false
     
@@ -51,7 +58,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         } else {
             initRecord()
         }
-        
+        imgView.image = imgStop
+
     }
     
     func selectAudioFile() {
@@ -140,6 +148,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         audioPlayer.play()
         setPlayButtons(false, pause: true, stop: true)
         progressTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: timePlayerSelector, userInfo: nil, repeats: true)
+        imgView.image = imgPlay
+
     }
     
     @objc func updatePlayTime() {
@@ -150,6 +160,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     @IBAction func btnPauseAudio(_ sender: UIButton) {
         audioPlayer.pause()
         setPlayButtons(true, pause: false, stop: true)
+        imgView.image = imgPause
+
     }
     
     @IBAction func btnStopAudio(_ sender: UIButton) {
@@ -158,6 +170,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         lblCurrentTime.text = convertNSTimeInterval2String(0)
         setPlayButtons(true, pause: false, stop: false)
         progressTimer.invalidate()
+        imgView.image = imgStop
+
     }
     
     
@@ -169,6 +183,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         progressTimer.invalidate()
         setPlayButtons(true, pause: false, stop: false)
+        imgView.image = imgStop
+
     }
     
     
@@ -201,12 +217,16 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             audioRecorder.record()
             (sender as AnyObject).setTitle("Stop", for: UIControl.State())
             progressTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: timeRecordSelector, userInfo: nil, repeats: true)
+            imgView.image = imgRecord
+
         } else {
             audioRecorder.stop()
             progressTimer.invalidate()
             (sender as AnyObject).setTitle("Record", for: UIControl.State())
             btnPlay.isEnabled = true
             initPlay()
+            imgView.image = imgStop
+
             
         }
     }
